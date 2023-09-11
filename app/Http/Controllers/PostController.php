@@ -39,7 +39,20 @@ class PostController extends Controller
     {
         $input_post = $request['post'];
         $post->fill($input_post)->save();
+        return redirect('/posts/' . $post->id);
+    }
+    
+    public function stamp(Post $post)
+    {
+        return view('posts/stamp')->with(['post' => $post]);
+    }
 
+    public function stampon(Request $request, Post $post)
+    {
+        $input_goal = $request['post'];
+        $post->fill($input_goal)->save();
+        $post->stamp_date = now(); // 現在の日時を記録
+        $post->save();
         return redirect('/posts/' . $post->id);
     }
 

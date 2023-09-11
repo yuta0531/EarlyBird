@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title', 50);
             $table->string('body', 200);
             $table->foreignId('category_id')->constrained();
+            $table->timestamp('stamp_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
