@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->string('body', 200);
-            $table->foreignId('category_id')->constrained();
-            $table->timestamp('stamp_date')->nullable();
+            $table->foreignId('user_id')->constrained();
+            $table->timestamp('goal_time')->nullable();
+            $table->timestamp('get_up_time')->nullable();
+            $table->string('today_goal', 50);
+            $table->string('yell', 50);
             $table->timestamps();
             $table->softDeletes();
         });

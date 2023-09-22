@@ -10,25 +10,21 @@
         <form action="/posts" method="POST">
             @csrf
             <div>
-                <h2>タイトル</h2>
-                <input type="text" name="post[title]" placeholder="タイトル" value="{{ old('post.title') }}"/>
-                <p class="title__error" style="color:red">{{ $errors->first('post.title') }}</p>
+                <p>日付：{{\Carbon\Carbon::today()->format('m/d')}}</p>
             </div>
             <div>
-                <h2>本文</h2>
-                <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
-                <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
+                <h2>今日の目標</h2>
+                <input type="text" name="post[today_goal]" placeholder="今日の目標" value="{{ old('post.today_goal') }}"/>>
             </div>
             <div>
-                <h2>カテゴリー</h2>
-                <select name="post[category_id]">
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
+                <h2>yell仮</h2>
+                <input type="text" name="post[yell]" placeholder="yellsss" value="{{ old('post.yell') }}"/>
             </div>
-            <input type="submit" value="保存"/>
+            <div>
+                <h2>目標時間（カリ）</h2>
+                <input type="time" name="post[goal_time]" value="{{ old('post.goal_time') }}"/>
+            </div>
+            <input type="submit" value="Good Morning!"/>
         </form>
-        <div><a href="/">戻る</a></div>
     </body>
 </html>
