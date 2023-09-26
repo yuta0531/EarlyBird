@@ -1,19 +1,19 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
+<x-app-layout>
+    <x-slot name="header">
+         早起き習慣アプリ -Early Bird-
+    </x-slot>
     <body>
         <h1>早起き習慣アプリ -Early Bird-</h1>
         
         <h2>フレンドの起用時間</h2>
         <div>
-            @foreach ($posts as $post)
+            @foreach ($friendPosts as $friendPost)
                 <div>
-                    <p>ニックネーム：
-                    <p>目標時間：<a href="/posts/{{ $post->id }}">{{ $post->goal_time }}</a></p>
-                    <p>起床時間：<a href="/posts/{{ $post->id }}">{{ $post->get_up_time }}</a></p>
+                    <p><a href="/users/{{ $friendPost->user_id }}">ニックネーム:{{ $friendPost->user->name }}</a></p>
+                    <p>日付：{{\Carbon\Carbon::createFromTimeString($friendPost->get_up_time)->format('m/d') }}</p>
+                    <p>目標時間：{{\Carbon\Carbon::createFromTimeString($friendPost->goal_time)->format('H:i') }}</p>
+                    <p>起床時間：{{\Carbon\Carbon::createFromTimeString($friendPost->get_up_time)->format('H:i') }}</p>
+                    <br>
                 </div>
             @endforeach
         </div>
@@ -21,4 +21,4 @@
         
         <a href="/">Topへもどる</a>
     </body>
-</html>
+</x-app-layout>

@@ -29,19 +29,22 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-//Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth']], function(){
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::post('/posts',  [PostController::class, 'store']);
-    Route::get('/posts/create',  [PostController::class, 'create']);
+    Route::get('/posts/create',  [PostController::class, 'create'])->name('create');
     Route::get('/posts/friend',  [PostController::class, 'friendtime']);
     Route::get('/posts/{post}',  [PostController::class, 'show']);
     Route::put('/posts/{post}',  [PostController::class, 'update']);
     Route::delete('/posts/{post}',  [PostController::class, 'delete']);
     Route::get('/posts/{post}/edit',  [PostController::class, 'edit']);
-    Route::get('/posts/{post}/stamp', [PostController::class, 'stamp']);
-    Route::put('/posts/{post}/stampon',  [PostController::class, 'stampon']);
-    Route::get('/posts/friend',  [PostController::class, 'friendtime']);
+    Route::get('/posts/friend',  [PostController::class, 'friendtime'])->name('friend');
     Route::get('/users/profile',  [UserController::class, 'profile']);
-//});
+    Route::get('/users/my_profile',  [UserController::class, 'my_profile'])->name('my_profile');
+    Route::post('/users/{user}/follow',  [UserController::class, 'follow']);
+    Route::get('/users/search',  [UserController::class, 'search']);
+    Route::delete('/users/unfollow',  [UserController::class, 'unfollow'])->name('unfollow');
+    Route::put('/users/goal_time_set/{user}',  [UserController::class, 'goal_time_set']);
+});
 
 require __DIR__.'/auth.php';

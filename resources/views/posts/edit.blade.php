@@ -1,9 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>Blog</title>
-    </head>
+<x-app-layout>
+    <x-slot name="header">
+        　（ヘッダー名）
+    </x-slot>
     <body>
         <h1>早起き習慣アプリ -Early Bird-</h1>
         <h2>スタンプカード(目標変更)</h2>
@@ -25,4 +23,4 @@
             </form>
         </div>
     </body>
-</html>
+</x-app-layout>

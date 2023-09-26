@@ -12,11 +12,17 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('index')" :active="request()->routeIs('index')">
-                        {{ __('Index') }}
+                        {{ __('Top') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
+                        {{ __('今日のスタンプを押す') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('friend')" :active="request()->routeIs('friend')">
+                        {{ __('フレンドが起きた時間') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('my_profile')" :active="request()->routeIs('my_profile')">
+                        {{ __('プロフィール＆フレンド') }}
                     </x-nav-link>
                 </div>
             </div>
