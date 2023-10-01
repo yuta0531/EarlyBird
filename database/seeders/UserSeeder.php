@@ -43,6 +43,7 @@ class UserSeeder extends Seeder
         
         DB::table('users')->insert([
             'name' => 'クーガー',
+            'id' => '4',
             'email' => 'kuga@gmail.com',
             'goal_time' => '2000-01-01 00:00:00',
             'password' => Hash::make('password'),
