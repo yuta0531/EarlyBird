@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('goal_time')->nullable();
             $table->timestamp('get_up_time')->nullable();
             $table->string('today_goal', 50);
-            $table->string('yell', 50);
+            $table->string('yell', 50)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
