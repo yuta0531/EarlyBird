@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Follow;
+use App\Models\Comment;
 use DateTime;
 use OpenAI\Laravel\Facades\OpenAI;
 
@@ -59,7 +61,7 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function store(Post $post, User $user, Request $request)
+    public function store(Post $post, User $user, PostRequest $request)
     {
         $input = $request['post'];
         $input['user_id'] = Auth::id();
@@ -121,6 +123,14 @@ class PostController extends Controller
             'max_tokens' => 150,
         ]);
         return $result['choices'][0]['text'];;
+    }
+    
+    
+    public function comment(Comment $comment, Request $request){
+        $input=$request['comment'];
+        $comment->fill($input)->save();
+        
+        return redirect('/posts/' . $comment->post_id);
     }
 
 }

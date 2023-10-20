@@ -1,47 +1,76 @@
-<x-app-layout>
-    <x-slot name="header">
-         早起き習慣アプリ -Early Bird-
-    </x-slot>
-    <body>
-        <div class="h-screen w-screen flex justify-center">
-           <div>
-            <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
-                  <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><スタンプカード></h2>
-            </div>        
-        <form action="/posts" method="POST">
-            @csrf
-            <div>
-                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                日付：{{\Carbon\Carbon::today()->format('m/d')}}
-                </h2>
-                <br>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <title>早起き習慣アプリ -Early Bird-</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    </head>
+    <body class="bg-info-subtle">
+        <div class="container">
+            <div class="card">
+            <h5 class="card-header">EarlyBird</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <!--Header-->
+                        <ul class="nav nav-tabs justify-content-center bg-info-subtle col-12 col-md-12">
+                            <li class="nav-item">
+                              <a class="nav-link" href="/">TOP</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link active" aria-current="page" href="/posts/create">スタンプON</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/posts/friend">フレンド</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="/users/my_profile">プロフィール</a>
+                            </li>
+                        </ul>
+                        <!-- End Header -->
+                        <div class="h-screen w-screen flex justify-center">
+                            <div>
+                                <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+                                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><スタンプON></h2>
+                                </div>
+                                
+                            　　<form action="/posts" method="POST">
+                                    @csrf
+                                    <div>
+                                        <h3>
+                                        日付：{{\Carbon\Carbon::today()->format('m/d')}}
+                                        </h3>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <h3>
+                                        今日の目標
+                                        </h3>
+                                        <textarea class="form-control" id="FormControlTextarea1" rows="3" name="post[today_goal]" placeholder="ここはフレンドに共有されないよ">{{ old('post.today_goal') }}</textarea>
+                                        <p class="today_goal__error" style="color:red">今日の目標は1文字以上100文字以下にしてください！</p>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <label for="myCheckbox">応援メッセージをChatGPTで生成する</label>
+                                        <input type="checkbox" id="myCheckbox" name="myCheckbox">
+                                        <p>(＊無料枠を使用しており、うまくいかない場合は無料枠を超えてしまっているので、チェックを外してください)</p>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-warning" value="Good Morning!"/>
+                                    </div>
+                                </form>
+                            
+                                <div>
+                                    <br>
+                                    <a href="/">Topへもどる</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-                今日の目標
-                </h2>
-                <textarea name="post[today_goal]" placeholder="ここはフレンドに共有されないよ" value="{{ old('post.today_goal') }}"></textarea>
-                <br>
-            </div>
-            <div>
-                <label for="myCheckbox">応援メッセージをChatGPTで生成する</label>
-                <input type="checkbox" id="myCheckbox" name="myCheckbox">
-                <p>(＊無料枠を使用しており、うまくいかない場合は無料枠を超えてしまっているので、チェックを外してください)</p>
-                <br>
-            </div>
-            <div>
-            <input type="submit" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xl font-medium text-pink-700 ring-1 ring-inset ring-pink-700/10" value="Good Morning!"/>
-            </div>
-        </form>
-        
-        <div>
-            <br>
-            <a href="/">Topへもどる</a>
         </div>
-        </div>
-        </div>
-        </div>
-        
-        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     </body>
-    </x-app-layout>
+</html>
