@@ -42,6 +42,7 @@ class UserController extends Controller
         $query = User::query();
         if(!empty($nickname)) {
             $query->where('name', 'LIKE', "%{$nickname}%");
+            $user =$query;
         }
         $user =$query;
         return view('users/search')->with(['users' => $user->get()]);

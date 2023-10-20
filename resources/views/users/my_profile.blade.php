@@ -1,70 +1,105 @@
-<x-app-layout>
-    <x-slot name="header">
-         早起き習慣アプリ -Early Bird-
-    </x-slot>
-    <body>
-      <div class="h-screen w-screen flex justify-center">
-      <div>
-        <!-- Header -->
-        <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><プロフィール＆フレンド></h2>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+  <head>
+      <meta charset="utf-8">
+      <title>早起き習慣アプリ -Early Bird-</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body class="bg-info-subtle">
+    <div class="container">
+      <div class="card">
+        <h5 class="card-header">EarlyBird</h5>
+        <div class="card-body">
+          <div class="row">
+            <!--Header-->
+            <ul class="nav nav-tabs justify-content-center bg-info-subtle col-12 col-md-12">
+              <li class="nav-item">
+                <a class="nav-link" href="/">TOP</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/posts/create">スタンプON</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/posts/friend">フレンド</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/users/my_profile">プロフィール</a>
+              </li>
+            </ul>
+            <!--End Header-->
+            <div class="h-screen w-screen flex justify-center">
+              <div>
+                <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
+                  <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><プロフィール＆フレンド></h2>
+                </div>
+      
+                <div>
+                  <h5>
+                  ・自分のニックネーム：{{ Auth::user()->name }}
+                  </h5>
+                  <br>
+                </div>
+                
+                <div>
+                  <h5>
+                  <form action="/users/goal_time_set/{{ Auth::user()->id }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    ・現在の目標の起床時間：{{\Carbon\Carbon::createFromTimeString( Auth::user()->goal_time )->format('H:i') }}
+                    <input type="time" name="my_id[goal_time]" value="{{ old('my_id.goal_time') }}"/>
+                    <input type="submit" class="btn btn-primary" value="変更する">
+                    </form>
+                  </h5>
+                  <br>
+                </div>
+                
+                <div>
+                  <h5>
+                    <form action="/users/search" method="GET">
+                      @csrf
+                      ・フレンド追加
+                      <input type="text" class="form-control" name="nickname">
+                      <input type="submit" class="btn btn-primary" value="検索">
+                    </form>
+                  </h5>
+                  <br>
+                </div>  
+         
+                <div>
+                  <h5>
+                  ・フレンドリスト
+                  </h5>
+                  <table>
+                    <tbody>
+                      @foreach ($follows as $follow)
+                      <tr>
+                        <td class="border px-4 py-2"> {{ $follow->name }}
+                        <td class="border px-4 py-2">
+                          <form action="{{ route('unfollow', ['user' => $follow->id]) }}" method="post">
+                          @csrf
+                          @method('DELETE')
+                          <input type="hidden" name="followed_id" value="{{ $follow->id }}">
+                          <button type="buttun" class="btn btn-danger">消去</button>
+                          </form>
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div>
+                  <br>
+                  <a href="/">Topへもどる</a>
+                </div>
+              
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- End Header -->
-
-        <div class="mt-2.5">
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-          ・自分のニックネーム：{{ Auth::user()->name }}
-          </h2>
-          <br>
-        </div>
-        
-        <div>
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-          <form action="/users/goal_time_set/{{ Auth::user()->id }}" method="POST">
-            @csrf
-            @method('PUT')
-            ・現在の目標の起床時間：{{\Carbon\Carbon::createFromTimeString( Auth::user()->goal_time )->format('H:i') }}→
-            <input type="time" name="my_id[goal_time]" value="{{ old('my_id.goal_time') }}"/>
-            <input type="submit" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xl font-medium text-pink-700 ring-1 ring-inset ring-pink-700/10" value="変更する">
-            </form>
-          </h2>
-          <br>
-        </div>
-        
-        <div>
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-            <form action="/users/search" method="GET">
-              @csrf
-              ・フレンド追加
-              <input type="text" name="nickname">
-              <input type="submit" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xl font-medium text-pink-700 ring-1 ring-inset ring-pink-700/10" value="検索">
-            </form>
-          </h2>
-          <br>
-        </div>  
- 
-        <div>
-          <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200">
-          ・フレンドリスト
-          </h2>
-          <table>
-            <tbody>
-              @foreach ($follows as $follow)
-              <tr>
-                <td class="border px-4 py-2"> {{ $follow->name }}
-                <td class="border px-4 py-2">
-                  <button type="buttun" class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-pink-700 ring-1 ring-inset ring-pink-700/10">消去</button>
-                </td>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-        
-        <br>
-        <a href="/">Topへもどる</a>
-
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
   </body>
-</x-app-layout>
+</html>

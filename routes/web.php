@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\LikeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,8 +34,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/users/my_profile',  [UserController::class, 'my_profile'])->name('my_profile');
     Route::post('/users/{user}/follow',  [UserController::class, 'follow']);
     Route::get('/users/search',  [UserController::class, 'search']);
-    Route::delete('/users/unfollow',  [UserController::class, 'unfollow'])->name('unfollow');
+    Route::delete('/users/{user}/unfollow',  [UserController::class, 'unfollow'])->name('unfollow');
     Route::put('/users/goal_time_set/{user}',  [UserController::class, 'goal_time_set']);
+    Route::post('/posts/comment',   [PostController::class, 'comment'])->name('comment');
+    Route::get('/like/{id}', [LikeController::class, 'like']);
+    Route::get('/unlike/{id}', [LikeController::class, 'unlike']);
 });
 
 Route::get('/dashboard', function () {
