@@ -74,7 +74,7 @@
                     <tbody>
                       @foreach ($follows as $follow)
                       <tr>
-                        <td class="border px-4 py-2"> {{ $follow->name }}
+                        <td class="border px-4 py-2"> {{ $follow->name }}</td>
                         <td class="border px-4 py-2">
                           <form action="{{ route('unfollow', ['user' => $follow->id]) }}" method="post">
                           @csrf
@@ -86,6 +86,32 @@
                       </tr>
                       @endforeach
                     </tbody>
+                  </table>
+                </div>
+  
+                <br>
+                
+                <div>
+                  <h5>・あなたをフォローしている人</h5>
+                  <table>
+                      <tbody>
+                        @foreach ($followeds as $followed)
+                          <tr>
+                            <td class="border px-4 py-2">{{ $followed->name }}</td>
+                            @if ($followed->followed->contains(Auth::user()))
+                              <td class="border px-4 py-2">登録済み</td>
+                            @else
+                              <td class="border px-4 py-2">
+                                <form action="{{ route('follow', ['user' => $followed->id]) }}" method="post">
+                                @csrf
+                                <input type="hidden" name="followed_id" value="{{ $followed->id }}">
+                                <button type="buttun" class="btn btn-primary">追加</button>
+                                </form>
+                              </td>
+                            @endif
+                          </tr>
+                        @endforeach
+                      </tbody>
                   </table>
                 </div>
                 

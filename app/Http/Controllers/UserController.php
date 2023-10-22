@@ -24,8 +24,9 @@ class UserController extends Controller
             $user->save();
         }
         $my_id = Auth::id();
-        $follow = User::find($my_id)->following()->orderBy('id')->get();
-        return view('users/my_profile')->with(['follows' => $follow, 'my_id' => $my_id]);
+        $follows = User::find($my_id)->following()->orderBy('id')->get();
+        $followeds = User::find($my_id)->followed()->orderBy('id')->get();
+        return view('users/my_profile')->with(['follows' => $follows, 'followeds' => $followeds, 'my_id' => $my_id]);
     } 
     
     public function follow(User $user, Follow $follow, Request $request)

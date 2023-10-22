@@ -86,13 +86,13 @@
                 <br>
                 <p>リンク集</p>
                 <div>
-                  <a href="/posts/create">・今日のスタンプを押す</a>
+                  <a href="/posts/create">・今日のスタンプを押す (スタンプON)</a>
                 </div>
                 <div>
-                  <a href="/posts/friend">・フレンドの起きた時間</a>
+                  <a href="/posts/friend">・フレンドの起きた時間 (フレンド)</a>
                 </div>
                 <div>    
-                  <a href="/users/my_profile">・プロフィール＆フレンド追加</a>
+                  <a href="/users/my_profile">・プロフィール＆フレンド追加 (プロフィール)</a>
                 </div>
                 <br>
                 <div>

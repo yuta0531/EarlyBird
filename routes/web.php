@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/posts/friend',  [PostController::class, 'friendtime'])->name('friend');
     Route::get('/users/profile',  [UserController::class, 'profile']);
     Route::get('/users/my_profile',  [UserController::class, 'my_profile'])->name('my_profile');
-    Route::post('/users/{user}/follow',  [UserController::class, 'follow']);
+    Route::post('/users/{user}/follow',  [UserController::class, 'follow'])->name('follow');;
     Route::get('/users/search',  [UserController::class, 'search']);
     Route::delete('/users/{user}/unfollow',  [UserController::class, 'unfollow'])->name('unfollow');
     Route::put('/users/goal_time_set/{user}',  [UserController::class, 'goal_time_set']);
