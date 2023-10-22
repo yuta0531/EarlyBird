@@ -41,9 +41,9 @@
                   <thead>
                     <tr>
                         <th class="px-4 py-2">日付</th>
-                        <th class="px-4 py-2">目標</th>
                         <th class="px-4 py-2">起床</th>
                         <th class="px-4 py-2">ニックネーム</th>
+                        <th class="px-4 py-2">詳細</th>
                     </tr>
                   </thead>
         
@@ -51,7 +51,6 @@
                   　@foreach ($friendPosts as $friendPost)
                       <tr>
                           <td class="border px-4 py-2" >{{\Carbon\Carbon::createFromTimeString($friendPost->get_up_time)->format('m/d') }}</td>
-                          <td class="border px-4 py-2">{{\Carbon\Carbon::createFromTimeString($friendPost->goal_time)->format('H:i') }}</td>
                           <!--目標時間と起床時間のどっちが早いかで色分け-->
                         @php
                             $goalTime = \Carbon\Carbon::parse($friendPost->goal_time);
@@ -63,22 +62,23 @@
                         @else($goalTime->format('H:i') < $getUpTime->format('H:i'))
                             <td class="border px-4 py-2 bg-warning-subtle">
                         @endif
-                          {{\Carbon\Carbon::createFromTimeString($friendPost->get_up_time)->format('H:i') }}
-                          <div class="likes">
-                              @if($friendPost->is_liked_by_auth_user())
-                                  <a href="/unlike/{{ $friendPost->id }}" class="btn btn-success btn-sm">いいね  <span>{{ $friendPost->likes->count() }}</span></a>
-                              @else
-                                  <a href="/like/{{ $friendPost->id }}" class="btn btn-secondary btn-sm">いいね  <span>{{ $friendPost->likes->count() }}</span></a>
-                              @endif
-                          </div>
-                          
-                          
-                          </td>
-                          <td class="border px-4 py-2">
-                            <a href="/posts/{{ $friendPost->id }}">
-                              {{ $friendPost->user->name }}
-                            </a>
-                          </td>
+                              {{\Carbon\Carbon::createFromTimeString($friendPost->get_up_time)->format('H:i') }}
+                              <div class="likes">
+                                  @if($friendPost->is_liked_by_auth_user())
+                                      <a href="/unlike/{{ $friendPost->id }}" class="btn btn-success btn-sm">いいね  <span>{{ $friendPost->likes->count() }}</span></a>
+                                  @else
+                                      <a href="/like/{{ $friendPost->id }}" class="btn btn-secondary btn-sm">いいね  <span>{{ $friendPost->likes->count() }}</span></a>
+                                  @endif
+                              </div>
+                            </td>
+                            <td class="border px-4 py-2">
+                              <p>{{ $friendPost->user->name }}</p>
+                            </td>
+                            <td class="border px-4 py-2">
+                              <a href="/posts/{{ $friendPost->id }}">
+                                くわしく見る
+                              </a>
+                            </td>
                       </tr>
                     @endforeach
                   </tbody>

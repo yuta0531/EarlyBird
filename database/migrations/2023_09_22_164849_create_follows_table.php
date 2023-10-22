@@ -4,7 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-
 return new class extends Migration
 {
     /**
@@ -21,7 +20,7 @@ return new class extends Migration
             $table->timestamps();
             
             $table->unique(['following_id', 'followed_id']);
-            //following-followedの組が重複しないようにする
+            //following-followedが重複しないようにする
         });
     }
 

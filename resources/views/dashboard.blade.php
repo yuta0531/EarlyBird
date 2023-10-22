@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/posts/friend">フレンド</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link bg-danger link-warning" href="/users/my_profile">プロフィール</a>
+                    <a class="nav-link" href="/users/my_profile">プロフィール</a>
                   </li>
                 </ul>
                 
@@ -40,6 +40,11 @@
                 
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                            <div class="p-6 text-gray-900">
+                                {{ __("朝起きたら「スタンプON」をクリック！") }}
+                            </div>
+                        </div>
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6 text-gray-900">
                                 {{ __("初めての方は上にあるプロフィールをクリックして、目標の起床時間を設定してね！") }}

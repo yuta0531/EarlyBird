@@ -46,8 +46,8 @@
                                         <h3>
                                         今日の目標
                                         </h3>
-                                        <textarea class="form-control" id="FormControlTextarea1" rows="3" name="post[today_goal]" placeholder="ここはフレンドに共有されないよ">{{ old('post.today_goal') }}</textarea>
-                                        <p class="today_goal__error" style="color:red">今日の目標は1文字以上100文字以下にしてください！</p>
+                                        <textarea class="form-control" id="FormControlTextarea1" rows="3" name="post[today_goal]" placeholder="ここに今日の目標を記入して">{{ old('post.today_goal') }}</textarea>
+                                        <p class="today_goal__error" style="color:red">今日の目標は必ず入力してください！</p>
                                         <br>
                                     </div>
                                     <div>
