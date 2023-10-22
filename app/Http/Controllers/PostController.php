@@ -39,7 +39,7 @@ class PostController extends Controller
     {
         $my_id = Auth::id();
         $friends = User::find($my_id)->following;
-        $friendPosts = Post::whereIn('user_id', $friends->pluck('id'))->orderBy('created_at', 'desc')->get();
+        $friendPosts = Post::whereIn('user_id', $friends->pluck('id'))->orderBy('created_at', 'desc')->paginate(10);
         return view('posts.friendtime')->with(['friendPosts' => $friendPosts]);
     } 
 

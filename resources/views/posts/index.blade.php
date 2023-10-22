@@ -60,9 +60,9 @@
                           @endphp
                           
                           @if($goalTime->format('H:i') >= $getUpTime->format('H:i'))
-                              <td class="border px-4 py-2 bg-info">
+                              <td class="border px-4 py-2 bg-info-subtle">
                           @else($goalTime->format('H:i') < $getUpTime->format('H:i'))
-                              <td class="border px-4 py-2 bg-warning">
+                              <td class="border px-4 py-2 bg-warning-subtle">
                           @endif
                               {{\Carbon\Carbon::createFromTimeString($post->get_up_time)->format('H:i') }}</td>
                         <td class="border px-4 py-2"><a href="/posts/{{ $post->id }}">{{ $post->today_goal }}</a></td>

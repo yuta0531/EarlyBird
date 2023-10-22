@@ -86,6 +86,10 @@
                 </div>
                 <!-- End Table -->
                 
+                <div class='paginate'>
+                    {{ $friendPosts->links() }}
+                </div>
+                
                 <div>
                 <br>
                 <a href="/">Topへもどる</a>
