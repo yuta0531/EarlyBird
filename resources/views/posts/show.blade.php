@@ -37,7 +37,7 @@
                 
                                 <h5>
                                     <div>
-                                        <p>ユーザー：{{ Auth::user()->name }}</p>
+                                        <p>ユーザー：{{ $post->user->name }}</p>
                                         <br>
                                     </div>
                                     <div>

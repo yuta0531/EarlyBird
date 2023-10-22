@@ -18,13 +18,13 @@
                     <a class="nav-link" href="/">TOP</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/posts/create">スタンプON</a>
+                    <a class="nav-link" href="/posts/create">スタンプ</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/posts/friend">フレンド</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/users/my_profile">プロフィール</a>
+                    <a class="nav-link" href="/users/my_profile">設定</a>
                   </li>
                 </ul>
                 
@@ -42,12 +42,13 @@
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6 text-gray-900">
-                                {{ __("朝起きたら「スタンプON」をクリック！") }}
+                                {{ __("朝起きたら「スタンプ」をクリック！") }}
                             </div>
                         </div>
+                        <br>
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6 text-gray-900">
-                                {{ __("初めての方は上にあるプロフィールをクリックして、目標の起床時間を設定してね！") }}
+                                {{ __("初めての方は上にある設定をクリックして、目標の起床時間を設定してね！") }}
                             </div>
                         </div>
                     </div>
