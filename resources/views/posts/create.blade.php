@@ -18,20 +18,20 @@
                               <a class="nav-link" href="/">TOP</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link active" aria-current="page" href="/posts/create">スタンプON</a>
+                              <a class="nav-link active" aria-current="page" href="/posts/create">スタンプ</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="/posts/friend">フレンド</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="/users/my_profile">プロフィール</a>
+                              <a class="nav-link" href="/users/my_profile">設定</a>
                             </li>
                         </ul>
                         <!-- End Header -->
                         <div class="h-screen w-screen flex justify-center">
                             <div>
                                 <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
-                                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><スタンプON></h2>
+                                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><スタンプ></h2>
                                 </div>
                                 
                             　　<form action="/posts" method="POST">

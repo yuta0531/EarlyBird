@@ -18,13 +18,13 @@
                 <a class="nav-link" href="/">TOP</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/posts/create">スタンプON</a>
+                <a class="nav-link" href="/posts/create">スタンプ</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/posts/friend">フレンド</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/users/my_profile">プロフィール</a>
+                <a class="nav-link active" aria-current="page" href="/users/my_profile">設定</a>
               </li>
             </ul>
             <!--End Header-->

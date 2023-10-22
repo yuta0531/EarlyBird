@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>早起き習慣アプリ -Early Bird-</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     </head>
     <body class="bg-info-subtle">
@@ -17,13 +18,13 @@
                               <a class="nav-link" aria-current="page" href="/">TOP</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="/posts/create">スタンプON</a>
+                              <a class="nav-link" href="/posts/create">スタンプ</a>
                             </li>
                             <li class="nav-item">
                               <a class="nav-link" href="/posts/friend">フレンド</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="/users/my_profile">プロフィール</a>
+                              <a class="nav-link" href="/users/my_profile">設定</a>
                             </li>
                         </ul>
                         <!--End Header-->

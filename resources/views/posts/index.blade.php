@@ -19,13 +19,13 @@
                     <a class="nav-link active" aria-current="page" href="#">TOP</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/posts/create">スタンプON</a>
+                    <a class="nav-link" href="/posts/create">スタンプ</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/posts/friend">フレンド</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/users/my_profile">プロフィール</a>
+                    <a class="nav-link" href="/users/my_profile">設定</a>
                   </li>
                 </ul>
               <!--End Header-->
@@ -86,13 +86,13 @@
                 <br>
                 <p>リンク集</p>
                 <div>
-                  <a href="/posts/create">・今日のスタンプを押す (スタンプON)</a>
+                  <a href="/posts/create">・今日のスタンプを押す (スタンプ)</a>
                 </div>
                 <div>
                   <a href="/posts/friend">・フレンドの起きた時間 (フレンド)</a>
                 </div>
                 <div>    
-                  <a href="/users/my_profile">・プロフィール＆フレンド追加 (プロフィール)</a>
+                  <a href="/users/my_profile">・プロフィール＆フレンド追加 (設定)</a>
                 </div>
                 <br>
                 <div>
