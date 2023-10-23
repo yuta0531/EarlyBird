@@ -9,6 +9,7 @@
   <body class="bg-info-subtle">
     <br>
     <div class="container">
+      <br>
         <div class="card">
             <h5 class="card-header">EarlyBird</h5>
             <div class="card-body">

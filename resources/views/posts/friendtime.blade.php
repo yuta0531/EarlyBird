@@ -7,6 +7,7 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body class="bg-info-subtle">
+    <br>
     <div class="container">
       <div class="card">
         <h5 class="card-header">EarlyBird</h5>
@@ -32,7 +33,7 @@
             <div class="h-screen w-screen flex justify-center">
               <div>
                 <div class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-gray-700">
-                  <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><フレンドの起用時間></h2>
+                  <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-200"><フレンドの起床時間></h2>
                 </div>
       
                 <!-- Table -->
