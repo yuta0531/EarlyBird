@@ -51,9 +51,11 @@
                                         <br>
                                     </div>
                                     <div>
-                                        <label for="myCheckbox">応援メッセージをChatGPTで生成する</label>
-                                        <input type="checkbox" id="myCheckbox" name="myCheckbox">
-                                        <p>(＊無料枠を使用しており、うまくいかない場合は無料枠を超えてしまっているので、チェックを外してください)</p>
+                                        <label for="myCheckbox"><s>応援メッセージをChatGPTで生成する</s></label>
+                                    <!--ChatGPTの無料枠を超えてしまったため、コメントアウト　-->
+                                    <!--    <input type="checkbox" id="myCheckbox" name="myCheckbox"> -->
+                                        <p><s>(＊無料枠を使用しており、うまくいかない場合は無料枠を超えてしまっているので、チェックを外してください)</s></p>
+                                        <p>＊ChatGPTの無料枠を超えてしまい、現在ChatGPTの応援メッセージはご利用いただけません</p>
                                         <br>
                                     </div>
                                     <div>
